@@ -1,0 +1,200 @@
+#include "keymap_common.h"
+
+/*
+ * Joren's GH60
+ */
+const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    /* Keymap 0: Default Layer (using ISO backslash)
+     * Keymap 1: Default Layer (using ANSI backslash)
+     * ,-----------------------------------------------------------.
+     * |Esc|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backsp |
+     * |-----------------------------------------------------------|
+     * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|    \|
+     * |-----------------------------------------------------------|
+     * |ExtFN |  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|  Return|
+     * |-----------------------------------------------------------|
+     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  .|  /|     Shift|
+     * |-----------------------------------------------------------|
+     * |Ctrl|Gui |Alt |        SpaceFN         |Alt |Gui |App |Ctrl|
+     * `-----------------------------------------------------------'
+     */
+    KEYMAP_ANSI(
+        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
+        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,NUBS, \
+        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
+        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
+        LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
+
+    KEYMAP_ANSI(
+        ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
+        TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
+        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
+        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
+        LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
+
+
+	/* Overlay 1: Game Layer (disable left win and SpaceFN)
+     * ,-----------------------------------------------------------.
+     * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
+     * |-----------------------------------------------------------|
+     * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
+     * |-----------------------------------------------------------|
+     * |      |   |   |   |   |   |   |   |   |   |   |   |        |
+     * |-----------------------------------------------------------|
+     * |        |   |   |   |   |   |   |   |   |   |   |          |
+     * |-----------------------------------------------------------|
+     * |    | NO |    |         Space          |    |    |    |    |
+     * `-----------------------------------------------------------'
+     */
+    KEYMAP_ANSI(
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
+        TRNS,  NO,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
+
+    /* Overlay 2: SpaceFN Layer
+     * ,-----------------------------------------------------------.
+     * |   |  ||  @|  #|   |   |   |   |   |  {|  }|   |   | Delete|
+     * |-----------------------------------------------------------|
+     * |     |   |MB4|MWU|MB5|   |   |Hom|Up |End|   |  [|  ]|    \|
+     * |-----------------------------------------------------------|
+     * |CAPS  |   |MWL|MWD|MWR|   |PgU|Lef|Dow|Rig|  ´|  `|        |
+     * |-----------------------------------------------------------|
+     * |        |   |   |   |   |   |PgD|WLe|WRi|   |   |          |
+     * |-----------------------------------------------------------|
+     * |    |    |    |                        |    |    |    |    |
+     * `-----------------------------------------------------------'
+     */
+    KEYMAP_ANSI(
+        TRNS, FN7, FN8, FN9,TRNS,TRNS,TRNS,TRNS,TRNS,FN10,FN11,TRNS,TRNS, DEL,  \
+        TRNS,TRNS,BTN4,WH_U,BTN5,TRNS,TRNS,HOME,  UP, END,TRNS,FN12,FN13,FN14,  \
+        CAPS,TRNS,WH_L,WH_D,WH_R,TRNS,PGUP,LEFT,DOWN,RGHT,FN15,FN16,     TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,FN17,FN18,TRNS,TRNS,          TRNS, \
+        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+
+    /* Overlay 3: Extended Function Layer
+     * ,-----------------------------------------------------------.
+     * |  `| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12| Delete|
+     * |-----------------------------------------------------------|
+     * |MseFN|Mb4|Mb5|   |   | Tm|Clc|Hom|Up |End|   |Psc|Pau|  Ins|
+     * |-----------------------------------------------------------|
+     * |      |   |   |   |   |   |PgU|Lef|Dow|Rig|  '|  \|ConfigFN|
+     * |-----------------------------------------------------------|
+     * |        |   |   |   |   |   |PgD|   |VDn|VUp|VMt|          |
+     * |-----------------------------------------------------------|
+     * |    |    |    |         Space          |    |    |GmFN|    |
+     * `-----------------------------------------------------------'
+     * Mb: Mouse Button
+     * MseFN: Mouse Layer
+     * GmFN: Game Layer
+     * ConfigFN: Configuration Layer
+     * Clc: Calculator
+     * Tm: Task Manager
+     */
+    KEYMAP_ANSI(
+        GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,  DEL,  \
+        FN2 ,BTN4,BTN5,TRNS,TRNS,FN19,CALC,HOME,UP,  END, TRNS,PSCR,PAUS, INS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN3, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,VOLD,VOLU,MUTE,          TRNS, \
+        TRNS,TRNS,TRNS,          SPC,                     TRNS,TRNS, FN4,TRNS),
+
+    /* Overlay 4: Mouse layer
+     * ,-----------------------------------------------------------.
+     * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
+     * |-----------------------------------------------------------|
+     * |     |MwU|   |   |   |   |   |Mb1|McU|Mb2|Mb3|   |   |     |
+     * |-----------------------------------------------------------|
+     * |      |MwD|   |   |   |   |Mb5|McL|McD|McR|   |   |        |
+     * |-----------------------------------------------------------|
+     * |        |   |   |   |   |   |Mb4|   |   |   |   |          |
+     * |-----------------------------------------------------------|
+     * |    |    |    |                        |    |    |    |    |
+     * `-----------------------------------------------------------'
+     * Mb: Mouse Button
+     * Mw: Mouse Wheel
+     * Mc: Mouse Cursor
+     */
+    KEYMAP_ANSI(
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,WH_U,TRNS,TRNS,TRNS,TRNS,TRNS,BTN1,MS_U,BTN2,BTN3,TRNS,TRNS,TRNS,  \
+        TRNS,WH_D,TRNS,TRNS,TRNS,TRNS,BTN5,MS_L,MS_D,MS_R,TRNS,TRNS,     TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTN4,TRNS,TRNS,TRNS,TRNS,          TRNS, \
+        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+
+    /* Overlay 5: Layout selection layer
+     * ,-----------------------------------------------------------.
+     * |   |ISO|ANS|   |   |   |   |   |   |   |   |   |   |BootLdr|
+     * |-----------------------------------------------------------|
+     * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
+     * |-----------------------------------------------------------|
+     * |      |   |   |   |   |   |   |   |   |   |   |   |        |
+     * |-----------------------------------------------------------|
+     * |        |   |   |   |   |   |   |   |   |   |   |          |
+     * |-----------------------------------------------------------|
+     * |    |    |    |                        |    |    |    |    |
+     * `-----------------------------------------------------------'
+     */
+    KEYMAP_ANSI(
+        TRNS, FN5, FN6,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTLD,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS,TRNS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
+        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+};
+
+/*
+ * Fn action definition
+ * Bitwise switching for stacked FN keys?
+ */
+const action_t PROGMEM fn_actions[] = {
+    [0] = ACTION_LAYER_TAP_KEY(3, KC_SPACE),    // SpaceFN
+    [1] = ACTION_LAYER_MOMENTARY(4),            // Extended Function Layer
+    [2] = ACTION_LAYER_MOMENTARY(5),            // Mouse Layer
+    [3] = ACTION_LAYER_MOMENTARY(6),            // Configuration Layer
+    [4] = ACTION_LAYER_TOGGLE(2),               // Toggle Game Layer
+    [5] = ACTION_DEFAULT_LAYER_SET(0),          // Set qwerty ISO
+    [6] = ACTION_DEFAULT_LAYER_SET(1),          // Set qwerty ANSI
+    [7] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),       // |
+    [8] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_2),       // @
+    [9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_3),       // #
+    [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_9),      // {
+    [11] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_0),      // }
+    [12] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_LBRC),   // [
+    [13] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_RBRC),   // ]
+    [14] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_NUBS),   // backslash
+    [15] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_QUOT),   // acute ´
+    [16] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_BSLS),   // grave `
+    [17] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),              // Word left
+    [18] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),              // Word right
+    [19] = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_ESC),    // Open Task Manager
+};
+
+/* GH60 LEDs
+ * (taken from QMK Firmware)
+ *   GPIO pads
+ *   0 F7 WASD LEDs
+ *   1 F6 ESC LED
+ *   2 F5 FN LED
+ *   3 F4 POKER Arrow LEDs
+ *   B2 Capslock LED
+ *   B0 not connected
+ */
+inline void gh60_caps_led_on(void)      { DDRB |=  (1<<2); PORTB &= ~(1<<2); }
+inline void gh60_poker_leds_on(void)    { DDRF |=  (1<<4); PORTF &= ~(1<<4); }
+inline void gh60_fn_led_on(void)        { DDRF |=  (1<<5); PORTF &= ~(1<<5); }
+inline void gh60_esc_led_on(void)       { DDRF |=  (1<<6); PORTF &= ~(1<<6); }
+inline void gh60_wasd_leds_on(void)     { DDRF |=  (1<<7); PORTF &= ~(1<<7); }
+
+inline void gh60_caps_led_off(void)     { DDRB &= ~(1<<2); PORTB &= ~(1<<2); }
+inline void gh60_poker_leds_off(void)   { DDRF &= ~(1<<4); PORTF &= ~(1<<4); }
+inline void gh60_fn_led_off(void)       { DDRF &= ~(1<<5); PORTF &= ~(1<<5); }
+inline void gh60_esc_led_off(void)      { DDRF &= ~(1<<6); PORTF &= ~(1<<6); }
+inline void gh60_wasd_leds_off(void)    { DDRF &= ~(1<<7); PORTF &= ~(1<<7); }
+
+/*
+ * Hooks
+ */
+void hook_layer_change(uint32_t layer_state) {
+    //uint32_t actual_state = (default_layer_state | layer_state);
+}
