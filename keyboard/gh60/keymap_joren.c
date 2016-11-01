@@ -171,7 +171,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_TAP_KEY(4, KC_SPACE),    // SpaceFN
-    [1] = ACTION_LAYER_MOMENTARY(5),            // Extended Function Layer
+    [1] = ACTION_LAYER_TAP_KEY(5, KC_BSPC),     // Extended Function Layer
     [2] = ACTION_LAYER_MOMENTARY(6),            // Mouse Layer
     [3] = ACTION_LAYER_MOMENTARY(7),            // Configuration Layer
     [4] = ACTION_LAYER_TOGGLE(2),               // Toggle Game Layer
