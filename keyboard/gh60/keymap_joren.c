@@ -53,7 +53,27 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,  NO,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
 
-    /* Overlay 2: SpaceFN Layer
+    /* Overlay 2: Oneshot Shift Layer
+     * ,-----------------------------------------------------------.
+     * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
+     * |-----------------------------------------------------------|
+     * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
+     * |-----------------------------------------------------------|
+     * |      |   |   |   |   |   |   |   |   |   |   |   |        |
+     * |-----------------------------------------------------------|
+     * |OS Lshft|   |   |   |   |   |   |   |   |   |   |  OS Rshft|
+     * |-----------------------------------------------------------|
+     * |    |    |    |                        |    |    |    |    |
+     * `-----------------------------------------------------------'
+     */
+    KEYMAP_ANSI(
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        FN20,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          FN21, \
+        TRNS,  NO,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
+
+    /* Overlay 3: SpaceFN Layer
      * ,-----------------------------------------------------------.
      * |   |  ||  @|  #|   |   |   |   |   |  {|  }|   |   | Delete|
      * |-----------------------------------------------------------|
@@ -73,7 +93,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,FN17,FN18,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
-    /* Overlay 3: Extended Function Layer
+    /* Overlay 4: Extended Function Layer
      * ,-----------------------------------------------------------.
      * |  `| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12| Delete|
      * |-----------------------------------------------------------|
@@ -99,11 +119,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,VOLD,VOLU,MUTE,          TRNS, \
         TRNS,TRNS,TRNS,          SPC,                     TRNS,TRNS, FN4,TRNS),
 
-    /* Overlay 4: Mouse layer
+    /* Overlay 5: Mouse layer
      * ,-----------------------------------------------------------.
      * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
      * |-----------------------------------------------------------|
-     * |     |MwU|   |   |   |   |   |Mb1|McU|Mb2|Mb3|   |   |     |
+     * |MseFN|MwU|   |   |   |   |   |Mb1|McU|Mb2|Mb3|   |   |     |
      * |-----------------------------------------------------------|
      * |      |MwD|   |   |   |   |Mb5|McL|McD|McR|   |   |        |
      * |-----------------------------------------------------------|
@@ -117,28 +137,30 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     KEYMAP_ANSI(
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
-        TRNS,WH_U,TRNS,TRNS,TRNS,TRNS,TRNS,BTN1,MS_U,BTN2,BTN3,TRNS,TRNS,TRNS,  \
+        FN2 ,WH_U,TRNS,TRNS,TRNS,TRNS,TRNS,BTN1,MS_U,BTN2,BTN3,TRNS,TRNS,TRNS,  \
         TRNS,WH_D,TRNS,TRNS,TRNS,TRNS,BTN5,MS_L,MS_D,MS_R,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTN4,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
-    /* Overlay 5: Layout selection layer
+    /* Overlay 6: Layout selection layer
      * ,-----------------------------------------------------------.
-     * |   |ISO|ANS|   |   |   |   |   |   |   |   |   |   |BootLdr|
+     * |   |ISO|ANS|Gm |OSS|   |   |   |   |   |   |   |   |BootLdr|
      * |-----------------------------------------------------------|
      * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
      * |-----------------------------------------------------------|
-     * |      |   |   |   |   |   |   |   |   |   |   |   |        |
+     * |      |   |   |   |   |   |   |   |   |   |   |   |ConfigFN|
      * |-----------------------------------------------------------|
      * |        |   |   |   |   |   |   |   |   |   |   |          |
      * |-----------------------------------------------------------|
      * |    |    |    |                        |    |    |    |    |
      * `-----------------------------------------------------------'
+     * Gm: Game
+     * OSS: One shot shift
      */
     KEYMAP_ANSI(
-        TRNS, FN5, FN6,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTLD,  \
+        TRNS, FN5, FN6, FN4,FN22,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTLD,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS,TRNS,  \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      FN3, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 };
@@ -148,10 +170,10 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Bitwise switching for stacked FN keys?
  */
 const action_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_TAP_KEY(3, KC_SPACE),    // SpaceFN
-    [1] = ACTION_LAYER_MOMENTARY(4),            // Extended Function Layer
-    [2] = ACTION_LAYER_MOMENTARY(5),            // Mouse Layer
-    [3] = ACTION_LAYER_MOMENTARY(6),            // Configuration Layer
+    [0] = ACTION_LAYER_TAP_KEY(4, KC_SPACE),    // SpaceFN
+    [1] = ACTION_LAYER_MOMENTARY(5),            // Extended Function Layer
+    [2] = ACTION_LAYER_MOMENTARY(6),            // Mouse Layer
+    [3] = ACTION_LAYER_MOMENTARY(7),            // Configuration Layer
     [4] = ACTION_LAYER_TOGGLE(2),               // Toggle Game Layer
     [5] = ACTION_DEFAULT_LAYER_SET(0),          // Set qwerty ISO
     [6] = ACTION_DEFAULT_LAYER_SET(1),          // Set qwerty ANSI
@@ -168,6 +190,9 @@ const action_t PROGMEM fn_actions[] = {
     [17] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),              // Word left
     [18] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),              // Word right
     [19] = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_ESC),    // Open Task Manager
+    [20] = ACTION_MODS_ONESHOT(MOD_LSFT),       // Oneshot Shift
+    [21] = ACTION_MODS_ONESHOT(MOD_RSFT),       // Oneshot Shift
+    [22] = ACTION_LAYER_TOGGLE(3),              // Toggle Oneshot Shift Layer
 };
 
 /* GH60 LEDs
