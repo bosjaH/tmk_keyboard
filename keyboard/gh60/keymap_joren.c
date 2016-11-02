@@ -70,8 +70,8 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
-        FN20,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          FN21, \
-        TRNS,  NO,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
+        FN21,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          FN22, \
+        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
     /* Overlay 3: SpaceFN Layer
      * ,-----------------------------------------------------------.
@@ -87,10 +87,10 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-----------------------------------------------------------'
      */
     KEYMAP_ANSI(
-        TRNS, FN7, FN8, FN9,TRNS,TRNS,TRNS,TRNS,TRNS,FN10,FN11,TRNS,TRNS, DEL,  \
-        TRNS,TRNS,BTN4,WH_U,BTN5,TRNS,TRNS,HOME,  UP, END,TRNS,FN12,FN13,FN14,  \
-        CAPS,TRNS,WH_L,WH_D,WH_R,TRNS,PGUP,LEFT,DOWN,RGHT,FN15,FN16,     TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,FN17,FN18,TRNS,TRNS,          TRNS, \
+        TRNS, FN8, FN9, FN10,TRNS,TRNS,TRNS,TRNS,TRNS,FN11,FN12,TRNS,TRNS, DEL,  \
+        TRNS,TRNS,BTN4,WH_U,BTN5,TRNS,TRNS,HOME,  UP, END,TRNS,FN13,FN14,FN15,  \
+        CAPS,TRNS,WH_L,WH_D,WH_R,TRNS,PGUP,LEFT,DOWN,RGHT,FN16,FN17,     TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,FN18,FN19,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
     /* Overlay 4: Extended Function Layer
@@ -114,7 +114,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     KEYMAP_ANSI(
         GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,  DEL,  \
-        FN2 ,BTN4,BTN5,TRNS,TRNS,FN19,CALC,HOME,UP,  END, TRNS,PSCR,PAUS, INS,  \
+        FN2 ,BTN4,BTN5,TRNS,TRNS,FN20,CALC,HOME,UP,  END, TRNS,PSCR,PAUS, INS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN3, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,VOLD,VOLU,MUTE,          TRNS, \
         TRNS,TRNS,TRNS,          SPC,                     TRNS,TRNS, FN4,TRNS),
@@ -158,7 +158,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * OSS: One shot shift
      */
     KEYMAP_ANSI(
-        TRNS, FN5, FN6, FN4,FN22,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTLD,  \
+        TRNS, FN6, FN7, FN4, FN5,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTLD,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS,TRNS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      FN3, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
@@ -175,24 +175,24 @@ const action_t PROGMEM fn_actions[] = {
     [2] = ACTION_LAYER_MOMENTARY(6),            // Mouse Layer
     [3] = ACTION_LAYER_MOMENTARY(7),            // Configuration Layer
     [4] = ACTION_LAYER_TOGGLE(2),               // Toggle Game Layer
-    [5] = ACTION_DEFAULT_LAYER_SET(0),          // Set qwerty ISO
-    [6] = ACTION_DEFAULT_LAYER_SET(1),          // Set qwerty ANSI
-    [7] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),       // |
-    [8] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_2),       // @
-    [9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_3),       // #
-    [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_9),      // {
-    [11] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_0),      // }
-    [12] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_LBRC),   // [
-    [13] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_RBRC),   // ]
-    [14] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_NUBS),   // backslash
-    [15] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_QUOT),   // acute ´
-    [16] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_BSLS),   // grave `
-    [17] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),              // Word left
-    [18] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),              // Word right
-    [19] = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_ESC),    // Open Task Manager
-    [20] = ACTION_MODS_ONESHOT(MOD_LSFT),       // Oneshot Shift
-    [21] = ACTION_MODS_ONESHOT(MOD_RSFT),       // Oneshot Shift
-    [22] = ACTION_LAYER_TOGGLE(3),              // Toggle Oneshot Shift Layer
+    [5] = ACTION_LAYER_TOGGLE(3),              // Toggle Oneshot Shift Layer
+    [6] = ACTION_DEFAULT_LAYER_SET(0),          // Set qwerty ISO
+    [7] = ACTION_DEFAULT_LAYER_SET(1),          // Set qwerty ANSI
+    [8] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),       // |
+    [9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_2),       // @
+    [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_3),       // #
+    [11] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_9),      // {
+    [12] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_0),      // }
+    [13] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_LBRC),   // [
+    [14] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_RBRC),   // ]
+    [15] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_NUBS),   // backslash
+    [16] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_QUOT),   // acute ´
+    [17] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_BSLS),   // grave `
+    [18] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),              // Word left
+    [19] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),              // Word right
+    [20] = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_ESC),    // Open Task Manager
+    [21] = ACTION_MODS_ONESHOT(MOD_LSFT),       // Oneshot Shift
+    [22] = ACTION_MODS_ONESHOT(MOD_RSFT),       // Oneshot Shift
 };
 
 /* GH60 LEDs
@@ -221,5 +221,5 @@ inline void gh60_wasd_leds_off(void)    { DDRF &= ~(1<<7); PORTF &= ~(1<<7); }
  * Hooks
  */
 void hook_layer_change(uint32_t layer_state) {
-    //uint32_t actual_state = (default_layer_state | layer_state);
+    //uint32_t actual_state = default_layer_state | layer_state;
 }
