@@ -3,11 +3,6 @@
 /*
  * Joren's GH60
  */
-enum macro_id {
-    ACCENT_ACUTE,
-    ACCENT_GRAVE,
-};
-
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Keymap 0: Default Layer (using ISO backslash)
      * Keymap 1: Default Layer (using ANSI backslash)
@@ -174,13 +169,18 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * Fn action definition
  * Bitwise switching for stacked FN keys?
  */
+enum macro_id {
+    ACCENT_ACUTE,
+    ACCENT_GRAVE,
+};
+
 const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_TAP_KEY(4, KC_SPACE),    // SpaceFN
     [1] = ACTION_LAYER_TAP_KEY(5, KC_BSPC),     // Extended Function Layer
     [2] = ACTION_LAYER_MOMENTARY(6),            // Mouse Layer
     [3] = ACTION_LAYER_MOMENTARY(7),            // Configuration Layer
     [4] = ACTION_LAYER_TOGGLE(2),               // Toggle Game Layer
-    [5] = ACTION_LAYER_TOGGLE(3),              // Toggle Oneshot Shift Layer
+    [5] = ACTION_LAYER_TOGGLE(3),               // Toggle Oneshot Shift Layer
     [6] = ACTION_DEFAULT_LAYER_SET(0),          // Set qwerty ISO
     [7] = ACTION_DEFAULT_LAYER_SET(1),          // Set qwerty ANSI
     [8] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),       // |
@@ -191,8 +191,6 @@ const action_t PROGMEM fn_actions[] = {
     [13] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_LBRC),   // [
     [14] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_RBRC),   // ]
     [15] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_NUBS),   // backslash
-    //[16] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_QUOT),   // acute ´
-    //[17] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_BSLS),   // grave `
     [16] = ACTION_MACRO(ACCENT_ACUTE),          // acute ´
     [17] = ACTION_MACRO(ACCENT_GRAVE),          // grave `
     [18] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),  // Word left
@@ -201,6 +199,26 @@ const action_t PROGMEM fn_actions[] = {
     [21] = ACTION_MODS_ONESHOT(MOD_LSFT),       // Oneshot Shift
     [22] = ACTION_MODS_ONESHOT(MOD_RSFT),       // Oneshot Shift
 };
+
+/*
+ * Macro definition
+ */
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+    switch (id) {
+        case ACCENT_ACUTE:
+            if (record->event.pressed) {
+                return MACRO( D(LCTL), D(LALT), T(QUOT), U(LCTL), U(LALT), T(SPC), END);
+            }
+            break;
+        case ACCENT_GRAVE:
+            if (record->event.pressed) {
+                return MACRO( D(LCTL), D(LALT), T(BSLS), U(LCTL), U(LALT), T(SPC), END);
+            }
+            break;
+    }
+    return MACRO_NONE;
+}
 
 /* GH60 LEDs
  * (taken from QMK Firmware)
@@ -223,26 +241,6 @@ inline void gh60_poker_leds_off(void)   { DDRF &= ~(1<<4); PORTF &= ~(1<<4); }
 inline void gh60_fn_led_off(void)       { DDRF &= ~(1<<5); PORTF &= ~(1<<5); }
 inline void gh60_esc_led_off(void)      { DDRF &= ~(1<<6); PORTF &= ~(1<<6); }
 inline void gh60_wasd_leds_off(void)    { DDRF &= ~(1<<7); PORTF &= ~(1<<7); }
-
-/*
- * Macro definition
- */
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-    switch (id) {
-        case ACCENT_ACUTE:
-            if (record->event.pressed) {
-                return MACRO( D(LCTL), D(LALT), T(QUOT), U(LCTL), U(LALT));
-            }
-            break;
-        case ACCENT_GRAVE:
-            if (record->event.pressed) {
-                return MACRO( D(LCTL), D(LALT), T(BSLS), U(LCTL), U(LALT));
-            }
-            break;
-    }
-    return MACRO_NONE;
-}
 
 /*
  * Hooks
