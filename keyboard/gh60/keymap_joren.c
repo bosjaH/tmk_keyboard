@@ -3,6 +3,11 @@
 /*
  * Joren's GH60
  */
+enum macro_id {
+    ACCENT_ACUTE,
+    ACCENT_GRAVE,
+};
+
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Keymap 0: Default Layer (using ISO backslash)
      * Keymap 1: Default Layer (using ANSI backslash)
@@ -81,7 +86,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |CAPS  |   |MWL|MWD|MWR|   |PgU|Lef|Dow|Rig|  ´|  `|        |
      * |-----------------------------------------------------------|
-     * |        |   |   |   |   |   |PgD|WLe|WRi|   |   |          |
+     * |        |   |   |   |   |Spc|PgD|WLe|WRi|   |   |          |
      * |-----------------------------------------------------------|
      * |    |    |    |                        |    |    |    |    |
      * `-----------------------------------------------------------'
@@ -90,14 +95,14 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS, FN8, FN9, FN10,TRNS,TRNS,TRNS,TRNS,TRNS,FN11,FN12,TRNS,TRNS, DEL,  \
         TRNS,TRNS,BTN4,WH_U,BTN5,TRNS,TRNS,HOME,  UP, END,TRNS,FN13,FN14,FN15,  \
         CAPS,TRNS,WH_L,WH_D,WH_R,TRNS,PGUP,LEFT,DOWN,RGHT,FN16,FN17,     TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,FN18,FN19,TRNS,TRNS,          TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS, SPC,PGDN,FN18,FN19,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
     /* Overlay 4: Extended Function Layer
      * ,-----------------------------------------------------------.
      * |  `| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12| Delete|
      * |-----------------------------------------------------------|
-     * |MseFN|Mb4|Mb5|   |   | Tm|Clc|Hom|Up |End|   |Psc|Pau|  Ins|
+     * |MseFN|Mb4|Mb5|  ´|  `| Tm|Clc|Hom|Up |End|   |Psc|Pau|  Ins|
      * |-----------------------------------------------------------|
      * |      |   |   |   |   |   |PgU|Lef|Dow|Rig|  '|  \|ConfigFN|
      * |-----------------------------------------------------------|
@@ -114,7 +119,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     KEYMAP_ANSI(
         GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,  DEL,  \
-        FN2 ,BTN4,BTN5,TRNS,TRNS,FN20,CALC,HOME,UP,  END, TRNS,PSCR,PAUS, INS,  \
+        FN2 ,BTN4,BTN5,FN16,FN17,FN20,CALC,HOME,UP,  END, TRNS,PSCR,PAUS, INS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN3, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,VOLD,VOLU,MUTE,          TRNS, \
         TRNS,TRNS,TRNS,          SPC,                     TRNS,TRNS, FN4,TRNS),
@@ -186,10 +191,12 @@ const action_t PROGMEM fn_actions[] = {
     [13] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_LBRC),   // [
     [14] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_RBRC),   // ]
     [15] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_NUBS),   // backslash
-    [16] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_QUOT),   // acute ´
-    [17] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_BSLS),   // grave `
-    [18] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),              // Word left
-    [19] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),              // Word right
+    //[16] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_QUOT),   // acute ´
+    //[17] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_BSLS),   // grave `
+    [16] = ACTION_MACRO(ACCENT_ACUTE),          // acute ´
+    [17] = ACTION_MACRO(ACCENT_GRAVE),          // grave `
+    [18] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),  // Word left
+    [19] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),  // Word right
     [20] = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_ESC),    // Open Task Manager
     [21] = ACTION_MODS_ONESHOT(MOD_LSFT),       // Oneshot Shift
     [22] = ACTION_MODS_ONESHOT(MOD_RSFT),       // Oneshot Shift
@@ -216,6 +223,26 @@ inline void gh60_poker_leds_off(void)   { DDRF &= ~(1<<4); PORTF &= ~(1<<4); }
 inline void gh60_fn_led_off(void)       { DDRF &= ~(1<<5); PORTF &= ~(1<<5); }
 inline void gh60_esc_led_off(void)      { DDRF &= ~(1<<6); PORTF &= ~(1<<6); }
 inline void gh60_wasd_leds_off(void)    { DDRF &= ~(1<<7); PORTF &= ~(1<<7); }
+
+/*
+ * Macro definition
+ */
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+    switch (id) {
+        case ACCENT_ACUTE:
+            if (record->event.pressed) {
+                return MACRO( D(LCTL), D(LALT), T(QUOT), U(LCTL), U(LALT));
+            }
+            break;
+        case ACCENT_GRAVE:
+            if (record->event.pressed) {
+                return MACRO( D(LCTL), D(LALT), T(BSLS), U(LCTL), U(LALT));
+            }
+            break;
+    }
+    return MACRO_NONE;
+}
 
 /*
  * Hooks
