@@ -77,7 +77,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |   |  ||  @|  #|   |   |   |   |   |  {|  }|   |   | Delete|
      * |-----------------------------------------------------------|
-     * |     |   |MB4|MWU|MB5|   |   |Hom|Up |End|   |  [|  ]|    \|
+     * |     |   |MB4|MWU|MB5|BrB|BrF|Hom|Up |End|   |  [|  ]|    \|
      * |-----------------------------------------------------------|
      * |CAPS  |   |MWL|MWD|MWR|   |PgU|Lef|Dow|Rig|  ´|  `|        |
      * |-----------------------------------------------------------|
@@ -85,10 +85,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |    |    |    |                        |    |    |    |    |
      * `-----------------------------------------------------------'
+     * Br: Browser (forward/back)
      */
     KEYMAP_ANSI(
         TRNS, FN8, FN9, FN10,TRNS,TRNS,TRNS,TRNS,TRNS,FN11,FN12,TRNS,TRNS, DEL,  \
-        TRNS,TRNS,BTN4,WH_U,BTN5,TRNS,TRNS,HOME,  UP, END,TRNS,FN13,FN14,FN15,  \
+        TRNS,TRNS,BTN4,WH_U,BTN5,WBAK,WFWD,HOME,  UP, END,TRNS,FN13,FN14,FN15,  \
         CAPS,TRNS,WH_L,WH_D,WH_R,TRNS,PGUP,LEFT,DOWN,RGHT,FN16,FN17,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS, SPC,PGDN,FN18,FN19,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
