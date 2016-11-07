@@ -166,26 +166,36 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 /*
- * Fn action definition
- * Bitwise switching for stacked FN keys?
+ * FN definitions
  */
+enum layer_id {
+    L_DEFAULT,
+    L_DEFAULT_ANSI,
+    L_GAME,
+    L_ONESHOT_SHIFT,
+    L_SPACE_FN,
+    L_EXTENDED,
+    L_MOUSE,
+    L_CONFIG
+};
+
 enum macro_id {
     ACCENT_ACUTE,
     ACCENT_GRAVE,
 };
 
 const action_t PROGMEM fn_actions[] = {
-    [0] = ACTION_LAYER_TAP_KEY(4, KC_SPACE),    // SpaceFN
-    [1] = ACTION_LAYER_TAP_KEY(5, KC_BSPC),     // Extended Function Layer
-    [2] = ACTION_LAYER_MOMENTARY(6),            // Mouse Layer
-    [3] = ACTION_LAYER_MOMENTARY(7),            // Configuration Layer
-    [4] = ACTION_LAYER_TOGGLE(2),               // Toggle Game Layer
-    [5] = ACTION_LAYER_TOGGLE(3),               // Toggle Oneshot Shift Layer
-    [6] = ACTION_DEFAULT_LAYER_SET(0),          // Set qwerty ISO
-    [7] = ACTION_DEFAULT_LAYER_SET(1),          // Set qwerty ANSI
+    [0] = ACTION_LAYER_TAP_KEY(L_SPACE_FN, KC_SPACE),
+    [1] = ACTION_LAYER_TAP_KEY(L_EXTENDED, KC_BSPC),
+    [2] = ACTION_LAYER_MOMENTARY(L_MOUSE),
+    [3] = ACTION_LAYER_MOMENTARY(L_CONFIG),
+    [4] = ACTION_LAYER_TOGGLE(L_GAME),
+    [5] = ACTION_LAYER_TOGGLE(L_ONESHOT_SHIFT),
+    [6] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT),
+    [7] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT_ANSI),
     [8] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),       // |
     [9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_2),       // @
-    [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_3),       // #
+    [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_3),      // #
     [11] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_9),      // {
     [12] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_0),      // }
     [13] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_LBRC),   // [
@@ -246,5 +256,9 @@ inline void gh60_wasd_leds_off(void)    { DDRF &= ~(1<<7); PORTF &= ~(1<<7); }
  * Hooks
  */
 void hook_layer_change(uint32_t layer_state) {
-    //uint32_t actual_state = default_layer_state | layer_state;
+    if ((layer_state & L_GAME) == L_GAME) {
+        gh60_wasd_leds_on();
+    } else {
+        gh60_wasd_leds_off();
+    }
 }
