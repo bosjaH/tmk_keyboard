@@ -32,28 +32,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
         LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
 
-
-	/* Overlay 1: Game Layer (disable left win and SpaceFN)
-     * ,-----------------------------------------------------------.
-     * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
-     * |-----------------------------------------------------------|
-     * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
-     * |-----------------------------------------------------------|
-     * |      |   |   |   |   |   |   |   |   |   |   |   |        |
-     * |-----------------------------------------------------------|
-     * |        |   |   |   |   |   |   |   |   |   |   |          |
-     * |-----------------------------------------------------------|
-     * |    | NO |    |         Space          |    |    |    |    |
-     * `-----------------------------------------------------------'
-     */
-    KEYMAP_ANSI(
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
-        TRNS,  NO,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
-
-    /* Overlay 2: Oneshot Shift Layer
+    /* Overlay 1: Oneshot Shift Layer
      * ,-----------------------------------------------------------.
      * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
      * |-----------------------------------------------------------|
@@ -72,6 +51,26 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
         FN21,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          FN22, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+
+	/* Overlay 2: Game Layer (disable left win and SpaceFN)
+     * ,-----------------------------------------------------------.
+     * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
+     * |-----------------------------------------------------------|
+     * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
+     * |-----------------------------------------------------------|
+     * |      |   |   |   |   |   |   |   |   |   |   |   |        |
+     * |-----------------------------------------------------------|
+     * |Shift   |   |   |   |   |   |   |   |   |   |   |     Shift|
+     * |-----------------------------------------------------------|
+     * |    | NO |    |         Space          |    |    |    |    |
+     * `-----------------------------------------------------------'
+     */
+    KEYMAP_ANSI(
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        LSFT,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          RSFT, \
+        TRNS,  NO,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
 
     /* Overlay 3: SpaceFN Layer
      * ,-----------------------------------------------------------.
@@ -118,7 +117,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FN2 ,BTN4,BTN5,FN16,FN17,FN20,CALC,HOME,UP,  END, TRNS,PSCR,PAUS, INS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN3, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,VOLD,VOLU,MUTE,          TRNS, \
-        TRNS,TRNS,TRNS,          SPC,                     TRNS,TRNS, FN4,TRNS),
+        TRNS,TRNS,TRNS,          SPC,                     TRNS,TRNS, FN7,TRNS),
 
     /* Overlay 5: Mouse layer
      * ,-----------------------------------------------------------.
@@ -145,7 +144,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Overlay 6: Layout selection layer
      * ,-----------------------------------------------------------.
-     * |   |ISO|ANS|Gm |OSS|   |   |   |   |   |   |   |   |BootLdr|
+     * |   |ISO|ANS|OSS|Gm |   |   |   |   |   |   |   |   |BootLdr|
      * |-----------------------------------------------------------|
      * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
      * |-----------------------------------------------------------|
@@ -159,8 +158,8 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * OSS: One shot shift
      */
     KEYMAP_ANSI(
-        TRNS, FN6, FN7, FN4, FN5,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTLD,  \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PSCR,SLCK,PAUS,TRNS,  \
+        TRNS, FN4, FN5, FN6, FN7,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTLD,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      FN3, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
@@ -172,8 +171,8 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 enum layer_id {
     L_DEFAULT,
     L_DEFAULT_ANSI,
-    L_GAME,
     L_ONESHOT_SHIFT,
+    L_GAME,
     L_SPACE_FN,
     L_EXTENDED,
     L_MOUSE,
@@ -190,10 +189,10 @@ const action_t PROGMEM fn_actions[] = {
     [1] = ACTION_LAYER_TAP_KEY(L_EXTENDED, KC_BSPC),
     [2] = ACTION_LAYER_MOMENTARY(L_MOUSE),
     [3] = ACTION_LAYER_MOMENTARY(L_CONFIG),
-    [4] = ACTION_LAYER_TOGGLE(L_GAME),
-    [5] = ACTION_LAYER_TOGGLE(L_ONESHOT_SHIFT),
-    [6] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT),
-    [7] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT_ANSI),
+    [4] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT),
+    [5] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT_ANSI),
+    [6] = ACTION_LAYER_TOGGLE(L_ONESHOT_SHIFT),
+    [7] = ACTION_LAYER_TOGGLE(L_GAME),
     [8] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),       // |
     [9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_2),       // @
     [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_3),      // #
@@ -257,9 +256,21 @@ inline void gh60_wasd_leds_off(void)    { DDRF &= ~(1<<7); PORTF &= ~(1<<7); }
  * Hooks
  */
 void hook_layer_change(uint32_t layer_state) {
+    if ((layer_state & (L_SPACE_FN | L_EXTENDED)) != 0) {
+        gh60_fn_led_on();
+    } else {
+        gh60_fn_led_off();
+    }
+
     if ((layer_state & L_GAME) == L_GAME) {
         gh60_wasd_leds_on();
     } else {
         gh60_wasd_leds_off();
+    }
+
+    if ((layer_state & L_CONFIG) == L_CONFIG) {
+        gh60_esc_led_on();
+    } else {
+        gh60_esc_led_off();
     }
 }
