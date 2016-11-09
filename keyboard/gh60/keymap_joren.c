@@ -49,7 +49,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, DEL,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
-        FN21,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          FN22, \
+        FN23,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          FN24, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
     /* Overlay: Oneshot Shift Layer
@@ -107,10 +107,10 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * Br: Browser (forward/back)
      */
     KEYMAP_ANSI(
-        TRNS, FN8, FN9,FN10,TRNS,TRNS,TRNS,TRNS,TRNS,FN11,FN12,TRNS,TRNS, DEL,  \
-        TRNS,TRNS,BTN4,WH_U,BTN5,WBAK,WFWD,HOME,  UP, END,TRNS,FN13,FN14,FN15,  \
-        CAPS,TRNS,WH_L,WH_D,WH_R,TRNS,PGUP,LEFT,DOWN,RGHT,FN16,FN17,     TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS, SPC,PGDN,FN18,FN19,TRNS,TRNS,          TRNS, \
+        TRNS,FN10,FN11,FN12,TRNS,TRNS,TRNS,TRNS,TRNS,FN13,FN14,TRNS,TRNS, DEL,  \
+        TRNS,TRNS,BTN4,WH_U,BTN5,WBAK,WFWD,HOME,  UP, END,TRNS,FN15,FN16,FN17,  \
+        CAPS,TRNS,WH_L,WH_D,WH_R,TRNS,PGUP,LEFT,DOWN,RGHT,FN18,FN19,     TRNS, \
+        TRNS,TRNS,TRNS,TRNS,TRNS, SPC,PGDN,FN20,FN21,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
     /* Overlay: Extended Function Layer
@@ -123,7 +123,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |        |   |   |   |   |   |PgD|   |VDn|VUp|VMt|          |
      * |-----------------------------------------------------------|
-     * |    |    |    |         Space          |    |    |GmFN|    |
+     * |    |    |    |         Space          |    |BrFN|NpFN|    |
      * `-----------------------------------------------------------'
      * Mb: Mouse Button
      * Clc: Calculator
@@ -131,10 +131,10 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     KEYMAP_ANSI(
         GRV, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,  DEL,  \
-        TRNS,BTN4,BTN5,FN16,FN17,FN20,CALC,HOME,UP,  END, TRNS,PSCR,PAUS, INS,  \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN2, \
+        TRNS,BTN4,BTN5,FN18,FN19,FN22,CALC,HOME,UP,  END, TRNS,PSCR,PAUS, INS,  \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN7, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,VOLD,VOLU,MUTE,          TRNS, \
-        TRNS,TRNS,TRNS,          SPC,                     TRNS,TRNS, FN7,TRNS),
+        TRNS,TRNS,TRNS,          SPC,                     TRNS, FN2, FN3,TRNS),
 
     /* Overlay: Browsing Layer
      * ,-----------------------------------------------------------.
@@ -154,7 +154,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP_ANSI(
         TRNS, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,TRNS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTN4,MW_U,BTN5,TRNS,TRNS,TRNS,TRNS,  \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,MW_L,MW_D,MW_R,TRNS,TRNS,     TRNS, \
+        FN2 ,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,MW_L,MW_D,MW_R,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
@@ -177,7 +177,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP_ANSI(
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
+        FN3 ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
@@ -197,9 +197,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * OSS: One shot shift
      */
     KEYMAP_ANSI(
-        TRNS, FN4, FN5, FN6, FN7,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BTLD,  \
+        TRNS, FN4, FN5, FN6,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, FN8, FN9,BTLD,  \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      FN3, \
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      FN7, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 };
@@ -228,27 +228,29 @@ enum macro_id {
 const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_TAP_KEY(L_SPACE_FN, KC_SPACE),
     [1] = ACTION_LAYER_TAP_KEY(L_EXTENDED, KC_BSPC),
-    [2] = ACTION_LAYER_MOMENTARY(L_CONFIG),
-    [3] = ACTION_LAYER_MOMENTARY(L_NUMPAD),
-    [4] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT),
-    [5] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT_ANSI),
-    [6] = ACTION_LAYER_TOGGLE(L_ONESHOT_SHIFT),
-    [7] = ACTION_LAYER_TOGGLE(L_GAME),
-    [8] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),       // |
-    [9] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_2),       // @
-    [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_3),      // #
-    [11] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_9),      // {
-    [12] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_0),      // }
-    [13] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_LBRC),   // [
-    [14] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_RBRC),   // ]
-    [15] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_NUBS),   // backslash
-    [16] = ACTION_MACRO(ACCENT_ACUTE),          // acute ´
-    [17] = ACTION_MACRO(ACCENT_GRAVE),          // grave `
-    [18] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),  // Word left
-    [19] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),  // Word right
-    [20] = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_ESC),    // Open Task Manager
-    [21] = ACTION_MODS_ONESHOT(MOD_LSFT),       // Oneshot Shift
-    [22] = ACTION_MODS_ONESHOT(MOD_RSFT),       // Oneshot Shift
+    [2] = ACTION_LAYER_TOGGLE(L_BROWSING),
+    [3] = ACTION_LAYER_TOGGLE(L_NUMPAD),
+    [4] = ACTION_LAYER_TOGGLE(L_DELETE),
+    [5] = ACTION_LAYER_TOGGLE(L_ONESHOT_SHIFT),
+    [6] = ACTION_LAYER_TOGGLE(L_GAME),
+    [7] = ACTION_LAYER_MOMENTARY(L_CONFIG),
+    [8] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT),
+    [9] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT_ANSI),
+    [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),       // |
+    [11] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_2),       // @
+    [12] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_3),      // #
+    [13] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_9),      // {
+    [14] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_0),      // }
+    [15] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_LBRC),   // [
+    [16] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_RBRC),   // ]
+    [17] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_NUBS),   // backslash
+    [18] = ACTION_MACRO(ACCENT_ACUTE),          // acute ´
+    [19] = ACTION_MACRO(ACCENT_GRAVE),          // grave `
+    [20] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),  // Word left
+    [21] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),  // Word right
+    [22] = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_ESC),    // Open Task Manager
+    [23] = ACTION_MODS_ONESHOT(MOD_LSFT),       // Oneshot Shift
+    [24] = ACTION_MODS_ONESHOT(MOD_RSFT),       // Oneshot Shift
 };
 
 /*
