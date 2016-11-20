@@ -22,14 +22,14 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP_ANSI(
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,NUBS, \
-        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,      ENT,  \
+        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,      ENT, \
         FN24,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN25, \
         LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
 
     KEYMAP_ANSI(
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
-        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,      ENT,  \
+        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,      ENT, \
         FN24,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN25, \
         LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
 
