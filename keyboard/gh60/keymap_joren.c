@@ -22,15 +22,15 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KEYMAP_ANSI(
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,NUBS, \
-        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
-        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
+        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,      ENT,  \
+        FN24,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN25, \
         LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
 
     KEYMAP_ANSI(
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
-        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     ENT,  \
-        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
+        FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,      ENT,  \
+        FN24,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN25, \
         LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
 
     /* Overlay: Delete Layer
@@ -51,26 +51,6 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
-        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
-
-    /* Overlay: Oneshot Shift Layer
-     * ,-----------------------------------------------------------.
-     * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
-     * |-----------------------------------------------------------|
-     * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
-     * |-----------------------------------------------------------|
-     * |      |   |   |   |   |   |   |   |   |   |   |   |        |
-     * |-----------------------------------------------------------|
-     * |OS Lshft|   |   |   |   |   |   |   |   |   |   |  OS Rshft|
-     * |-----------------------------------------------------------|
-     * |    |    |    |                        |    |    |    |    |
-     * `-----------------------------------------------------------'
-     */
-    KEYMAP_ANSI(
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
-        FN24,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          FN25, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
 	/* Overlay: Game Layer (disable left win and SpaceFN)
@@ -135,11 +115,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FN8 ,BTN4,BTN5,FN18,FN19,FN23,CALC,HOME,  UP, END,TRNS,PSCR,PAUS, INS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN7, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,VOLD,VOLU,MUTE,          TRNS, \
-        TRNS,TRNS,TRNS,          SPC,                     TRNS, FN2, FN3,TRNS),
+        TRNS,TRNS,TRNS,          SPC,                     TRNS, FN3, FN4,TRNS),
 
     /* Overlay: Extended Locking Layer
      * ,-----------------------------------------------------------.
-     * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
+     * |Esc|   |   |   |   |   |   |   |   |   |   |   |   |       |
      * |-----------------------------------------------------------|
      * |Tab  |   |   |   |   |   |   |   |   |   |   |   |   |     |
      * |-----------------------------------------------------------|
@@ -147,15 +127,15 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |        |   |   |   |   |   |   |   |   |   |   |          |
      * |-----------------------------------------------------------|
-     * |    |    |    |                        |    | NO | NO |    |
+     * |    |    |    |                        |    |Gui |App |    |
      * `-----------------------------------------------------------'
      */
     KEYMAP_ANSI(
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
+        ESC ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         TAB ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         FN9 ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      ENT, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
-        TRNS,TRNS,TRNS,          TRNS,                    TRNS,  NO,  NO,TRNS),
+        TRNS,TRNS,TRNS,          TRNS,                    TRNS,RGUI, APP,TRNS),
 
     /* Overlay: Programming Layer
      * ,-----------------------------------------------------------.
@@ -167,7 +147,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |        |   |   |   |   |   |   |   |   |   |   |          |
      * |-----------------------------------------------------------|
-     * |    |    |    |                        |    |    |    |    |
+     * |    |    |    |         Space          |    |    |    |    |
      * `-----------------------------------------------------------'
      */
     KEYMAP_ANSI(
@@ -175,7 +155,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
-        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
+        TRNS,TRNS,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
 
     /* Overlay: Browsing Layer
      * ,-----------------------------------------------------------.
@@ -197,7 +177,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,BTN4,BTN5,TRNS,TRNS,TRNS,TRNS,BTN4,WH_U,BTN5,TRNS,TRNS,TRNS,TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,WH_L,WH_D,WH_R,TRNS,TRNS,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,TRNS,TRNS,TRNS,          TRNS, \
-        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS, FN2),
+        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS, FN3),
 
     /* Overlay: Numpad
      * ,-----------------------------------------------------------.
@@ -220,11 +200,11 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         TRNS,PMNS,PSLS,TRNS,TRNS,TRNS,PMNS,KP_7,KP_8,KP_9,PSLS,TRNS,TRNS,TRNS, \
         TRNS,PPLS,PAST,TRNS,TRNS,TRNS,PPLS,KP_4,KP_5,KP_6,PAST,TRNS,     PENT, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PDOT,KP_1,KP_2,KP_3,TRNS,          PENT, \
-        TRNS,TRNS,TRNS,          KP_0,                    PDOT,TRNS,NLCK, FN3),
+        TRNS,TRNS,TRNS,          KP_0,                    PDOT,TRNS,NLCK, FN4),
 
     /* Overlay: Layout selection layer
      * ,-----------------------------------------------------------.
-     * |   |Del|Oss|Gm |   |   |   |   |   |   |   |ISO|ANS|BootLdr|
+     * |   |Del|Gm |   |   |   |   |   |   |   |   |ISO|ANS|BootLdr|
      * |-----------------------------------------------------------|
      * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
      * |-----------------------------------------------------------|
@@ -235,10 +215,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |    |    |    |                        |    |    |    |    |
      * `-----------------------------------------------------------'
      * Gm: Game
-     * Oss: One shot shift
      */
     KEYMAP_ANSI(
-        TRNS, FN4, FN5, FN6,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN30,FN31,BTLD, \
+        TRNS, FN5, FN6,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,FN30,FN31,BTLD, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      FN7, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
@@ -252,11 +231,11 @@ enum layer_id {
     L_DEFAULT,
     L_DEFAULT_ANSI,
     L_DELETE,
-    L_ONESHOT_SHIFT,
     L_GAME,
     L_SPACE_FN,
     L_EXTENDED,
     L_EXTENDED_LOCK,
+    L_CODING,
     L_BROWSING,
     L_NUMPAD,
     L_CONFIG
@@ -264,7 +243,7 @@ enum layer_id {
 
 enum function_id {
     F_CLOSE_EXT
-}
+};
 
 enum macro_id {
     ACCENT_ACUTE,
@@ -274,14 +253,14 @@ enum macro_id {
 
 const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_TAP_KEY(L_SPACE_FN, KC_SPACE),
-    [1] = ACTION_LAYER_TAP_KEY(L_EXTENDED, KC_BSPC),
-    [2] = ACTION_LAYER_TOGGLE(L_BROWSING),
-    [3] = ACTION_LAYER_TOGGLE(L_NUMPAD),
-    [4] = ACTION_LAYER_TOGGLE(L_DELETE),
-    [5] = ACTION_LAYER_TOGGLE(L_ONESHOT_SHIFT),
+    [1] = ACTION_LAYER_TAP_KEY(L_EXTENDED, KC_ENTER),
+    [2] = ACTION_LAYER_MOMENTARY(L_CODING),
+    [3] = ACTION_LAYER_TOGGLE(L_BROWSING),
+    [4] = ACTION_LAYER_TOGGLE(L_NUMPAD),
+    [5] = ACTION_LAYER_TOGGLE(L_DELETE),
     [6] = ACTION_LAYER_TOGGLE(L_GAME),
     [7] = ACTION_LAYER_MOMENTARY(L_CONFIG),
-    [8] = ACTION_LAYER_ON(L_EXTENDED_LOCK),
+    [8] = ACTION_LAYER_ON(L_EXTENDED_LOCK, ON_PRESS),
     [9] = ACTION_FUNCTION(F_CLOSE_EXT),
     [10] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_1),      // |
     [11] = ACTION_MODS_KEY(MOD_LCTL | MOD_LALT, KC_2),      // @
