@@ -23,14 +23,14 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,NUBS, \
         FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,      ENT, \
-        FN24,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN25, \
+        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
         LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
 
     KEYMAP_ANSI(
         ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSPC, \
         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSLS, \
         FN1, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,      ENT, \
-        FN24,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          FN25, \
+        LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          RSFT, \
         LCTL,LGUI,LALT,          FN0,                     RALT,RGUI,APP, RCTL),
 
     /* Overlay: Delete Layer
@@ -61,25 +61,25 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |-----------------------------------------------------------|
      * |      |   |   |   |   |   |   |   |   |   |   |   |        |
      * |-----------------------------------------------------------|
-     * |Shift   |   |   |   |   |   |   |   |   |   |   |     Shift|
+     * |        |   |   |   |   |   |   |   |   |   |   |          |
      * |-----------------------------------------------------------|
-     * |    | NO |    |         Space          |    |    |    |    |
+     * |    | NO |    |         Space          |    |    |NpFN|    |
      * `-----------------------------------------------------------'
      */
     KEYMAP_ANSI(
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,BSPC, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
-        LSFT,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          RSFT, \
-        TRNS,  NO,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
+        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
+        TRNS,  NO,TRNS,           SPC,                    TRNS,TRNS, FN4,TRNS),
 
     /* Overlay: SpaceFN Layer
      * ,-----------------------------------------------------------.
      * |   |  ||  @|  #|   |   |   |   |   |  {|  }|   |   | Delete|
      * |-----------------------------------------------------------|
-     * |     |   |MB4|MWU|MB5|BrB|BrF|Hom|Up |End|   |  [|  ]|    \|
+     * |     |   |   |  [|  ]|Mb4|Mb5|Hom|Up |End|   |  [|  ]|    \|
      * |-----------------------------------------------------------|
-     * |CAPS  |   |MWL|MWD|MWR|Spc|PgU|Lef|Dow|Rig|  ´|  `|        |
+     * |CAPS  |   |   |  {|  }|Spc|PgU|Lef|Dow|Rig|  ´|  `|        |
      * |-----------------------------------------------------------|
      * |        |   |   |   |   |Spc|PgD|WLe|WRi|   |  ~|          |
      * |-----------------------------------------------------------|
@@ -89,8 +89,8 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     KEYMAP_ANSI(
         TRNS,FN10,FN11,FN12,TRNS,TRNS,TRNS,TRNS,TRNS,FN13,FN14,TRNS,TRNS, DEL, \
-        TRNS,TRNS,BTN4,WH_U,BTN5,WBAK,WFWD,HOME,  UP, END,TRNS,FN15,FN16,FN17, \
-        CAPS,TRNS,WH_L,WH_D,WH_R, SPC,PGUP,LEFT,DOWN,RGHT,FN18,FN19,     TRNS, \
+        TRNS,TRNS,TRNS,FN15,FN16,BTN4,BTN5,HOME,  UP, END,TRNS,FN15,FN16,FN17, \
+        CAPS,TRNS,TRNS,FN13,FN14, SPC,PGUP,LEFT,DOWN,RGHT,FN18,FN19,     TRNS, \
         TRNS,TRNS,TRNS,TRNS,TRNS, SPC,PGDN,FN21,FN22,TRNS,FN20,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS,TRNS,TRNS),
 
@@ -98,22 +98,23 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ,-----------------------------------------------------------.
      * |  `| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12| Delete|
      * |-----------------------------------------------------------|
-     * |Lock |Mb4|Mb5|  ´|  `| Tm|Clc|Hom|Up |End|   |Psc|Pau|  Ins|
+     * |Lock |Mb4|WhU|Mb5|   | Tm|Clc|Hom|Up |End|   |Psc|Pau|  Ins|
      * |-----------------------------------------------------------|
-     * |      |   |   |   |   |   |PgU|Lef|Dow|Rig|  '|  \|ConfigFN|
+     * |      |WhL|WhD|WhR|   |   |PgU|Lef|Dow|Rig|  '|  \|ConfigFN|
      * |-----------------------------------------------------------|
      * |        |   |   |   |   |   |PgD|   |VDn|VUp|VMt|          |
      * |-----------------------------------------------------------|
      * |    |    |    |         Space          |    |BrFN|NpFN|    |
      * `-----------------------------------------------------------'
      * Mb: Mouse Button
+     * Wh: Mouse Wheel
      * Clc: Calculator
      * Tm: Task Manager
      */
     KEYMAP_ANSI(
         GRV ,  F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9, F10, F11, F12, DEL, \
-        FN8 ,BTN4,BTN5,FN18,FN19,FN23,CALC,HOME,  UP, END,TRNS,PSCR,PAUS, INS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN7, \
+        FN8 ,BTN4,WH_U,BTN5,TRNS,FN23,CALC,HOME,  UP, END,TRNS,PSCR,PAUS, INS, \
+        TRNS,WH_L,WH_D,WH_R,TRNS,TRNS,PGUP,LEFT,DOWN,RGHT,QUOT,BSLS,      FN7, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,TRNS,VOLD,VOLU,MUTE,          TRNS, \
         TRNS,TRNS,TRNS,          SPC,                     TRNS, FN3, FN4,TRNS),
 
@@ -136,26 +137,6 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         FN9 ,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,      ENT, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
         TRNS,TRNS,TRNS,          TRNS,                    TRNS,RGUI, APP,TRNS),
-
-    /* Overlay: Programming Layer
-     * ,-----------------------------------------------------------.
-     * |   |   |   |   |   |   |   |   |   |   |   |   |   |       |
-     * |-----------------------------------------------------------|
-     * |     |   |   |   |   |   |   |   |   |   |   |   |   |     |
-     * |-----------------------------------------------------------|
-     * |      |   |  [|  (|  {|   |   |  }|  )|  ]|   |   |        |
-     * |-----------------------------------------------------------|
-     * |        |   |   |   |   |   |   |   |   |   |   |          |
-     * |-----------------------------------------------------------|
-     * |    |    |    |         Space          |    |    |    |    |
-     * `-----------------------------------------------------------'
-     */
-    KEYMAP_ANSI(
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,     TRNS, \
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,          TRNS, \
-        TRNS,TRNS,TRNS,           SPC,                    TRNS,TRNS,TRNS,TRNS),
 
     /* Overlay: Browsing Layer
      * ,-----------------------------------------------------------.
@@ -235,7 +216,6 @@ enum layer_id {
     L_SPACE_FN,
     L_EXTENDED,
     L_EXTENDED_LOCK,
-    L_CODING,
     L_BROWSING,
     L_NUMPAD,
     L_CONFIG
@@ -254,7 +234,6 @@ enum macro_id {
 const action_t PROGMEM fn_actions[] = {
     [0] = ACTION_LAYER_TAP_KEY(L_SPACE_FN, KC_SPACE),
     [1] = ACTION_LAYER_TAP_KEY(L_EXTENDED, KC_ENTER),
-    [2] = ACTION_LAYER_MOMENTARY(L_CODING),
     [3] = ACTION_LAYER_TOGGLE(L_BROWSING),
     [4] = ACTION_LAYER_TOGGLE(L_NUMPAD),
     [5] = ACTION_LAYER_TOGGLE(L_DELETE),
@@ -273,11 +252,9 @@ const action_t PROGMEM fn_actions[] = {
     [18] = ACTION_MACRO(ACCENT_ACUTE),
     [19] = ACTION_MACRO(ACCENT_GRAVE),
     [20] = ACTION_MACRO(TILDE),
-    [21] = ACTION_MODS_KEY(MOD_LALT, KC_LEFT),  // Word left
-    [22] = ACTION_MODS_KEY(MOD_LALT, KC_RGHT),  // Word right
+    [21] = ACTION_MODS_KEY(MOD_LCTL, KC_LEFT),  // Word left
+    [22] = ACTION_MODS_KEY(MOD_LCTL, KC_RGHT),  // Word right
     [23] = ACTION_MODS_KEY(MOD_LCTL | MOD_LSFT, KC_ESC),    // Open Task Manager
-    [24] = ACTION_MODS_ONESHOT(MOD_LSFT),       // Oneshot Shift
-    [25] = ACTION_MODS_ONESHOT(MOD_RSFT),       // Oneshot Shift
     [30] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT),
     [31] = ACTION_DEFAULT_LAYER_SET(L_DEFAULT_ANSI),
 };
