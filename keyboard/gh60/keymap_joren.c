@@ -162,7 +162,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* Overlay: Numpad
      * ,-----------------------------------------------------------.
-     * |   |  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|   |   |       |
+     * |   |  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  +|Backspc|
      * |-----------------------------------------------------------|
      * |     |  -|  /|   |   |   |  -|  7|  8|  9|  /|   |   |     |
      * |-----------------------------------------------------------|
@@ -177,7 +177,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * Mc: Mouse Cursor
      */
     KEYMAP_ANSI(
-        TRNS,KP_1,KP_2,KP_3,KP_4,KP_5,KP_6,KP_7,KP_8,KP_9,KP_0,TRNS,TRNS,BSPC, \
+        TRNS,KP_1,KP_2,KP_3,KP_4,KP_5,KP_6,KP_7,KP_8,KP_9,KP_0,PMNS,PPLS,BSPC, \
         TRNS,PMNS,PSLS,TRNS,TRNS,TRNS,PMNS,KP_7,KP_8,KP_9,PSLS,TRNS,TRNS,TRNS, \
         TRNS,PPLS,PAST,TRNS,TRNS,TRNS,PPLS,KP_4,KP_5,KP_6,PAST,TRNS,     PENT, \
         TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PDOT,KP_1,KP_2,KP_3,TRNS,          PENT, \
